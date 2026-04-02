@@ -1,14 +1,15 @@
 manifest:
   version: 1.0
-
+  remotes:
+    - name: zephyrproject-rtos
+      url-base: https://github.com/zephyrproject-rtos
   projects:
     - name: zephyr
-      url: https://github.com/zephyrproject-rtos/zephyr
-      revision: v4.2.0
+      remote: zephyrproject-rtos
+      revision: v4.4.0-rc1
       import:
         name-allowlist:
           - cmsis_6
-          - hal_nxp
           - hal_stm32
-          - hal_nordic
-        path-prefix: deps
+          - hal_atmel
+        path-prefix: deps/
