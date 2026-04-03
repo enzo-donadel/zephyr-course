@@ -1,0 +1,79 @@
+---
+BasedOnStyle: LLVM
+
+Language: C
+Standard: c++20
+
+InsertNewlineAtEOF: true
+KeepEmptyLines:
+  AtEndOfFile: false
+  AtStartOfBlock: false
+  AtStartOfFile: false
+LineEnding: DeriveLF
+QualifierAlignment: Left
+
+# Indentation
+IndentWidth: 8
+TabWidth: 8
+UseTab: Never
+ContinuationIndentWidth: 8
+
+# Braces
+BreakBeforeBraces: Attach
+BraceWrapping:
+  AfterFunction: true
+  AfterControlStatement: MultiLine
+  AfterStruct: false
+  AfterEnum: false
+  BeforeWhile: false
+
+# Line length
+ColumnLimit: 80
+
+# Spacing
+SpaceBeforeAssignmentOperators: true
+SpacesInParentheses: false
+SpacesInSquareBrackets: false
+SpacesInAngles: false
+
+# Alignment
+AlignAfterOpenBracket: Align
+AlignConsecutiveAssignments: false
+AlignConsecutiveDeclarations: false
+AlignEscapedNewlines: Left
+AlignOperands: true
+AlignTrailingComments: true
+
+# Pointer and reference alignment
+PointerAlignment: Right
+DerivePointerAlignment: false
+
+# Function formatting
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLoopsOnASingleLine: true
+AllowShortBlocksOnASingleLine: Empty
+EmptyLineAfterAccessModifier: Never
+
+# Include sorting (useful for embedded projects)
+SortIncludes: true
+IncludeBlocks: Regroup
+IncludeCategories:
+  - Regex:           '^".*\.h"'
+    Priority:        1
+  - Regex:           '^<.*\.h>'
+    Priority:        2
+  - Regex:           '^<.*'
+    Priority:        3
+
+# Other settings
+KeepEmptyLinesAtTheStartOfBlocks: false
+MaxEmptyLinesToKeep: 1
+IndentCaseLabels: false
+
+AllowAllArgumentsOnNextLine: true
+AllowAllParametersOfDeclarationOnNextLine: true
+BinPackArguments: true
+BinPackParameters: true
+
+IndentPPDirectives: BeforeHash

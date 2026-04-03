@@ -23,7 +23,7 @@ echo Board: %Board%
 echo Output: %ROOT_DIR%build\
 echo.
 
-west build -p auto -d build -b %Board% . -- -DCMAKE_EXPORT_COMPILE_COMMANDS=ON %*
+west build %* -d build -b %Board% . -- -DCMAKE_EXPORT_COMPILE_COMMANDS=ON 
 
 if %ERRORLEVEL% neq 0 (
     echo.

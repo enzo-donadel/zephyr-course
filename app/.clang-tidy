@@ -1,0 +1,83 @@
+Checks: >
+  clang-analyzer-*,
+  bugprone-*,
+  performance-*,
+  portability-*,
+  readability-*,
+  -readability-magic-numbers,
+  -readability-identifier-length,
+  -readability-function-cognitive-complexity,
+  -bugprone-easily-swappable-parameters,
+  -bugprone-tagged-union-member-count,
+  -clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling,
+  -clang-analyzer-core.FixedAddressDereference,
+  -readability-isolate-declaration,
+  -readability-function-size,
+  -readability-uppercase-literal-suffix,
+  -readability-use-concise-preprocessor-directives,
+  -portability-avoid-pragma-once,
+  -altera-*
+
+WarningsAsErrors: ""
+
+HeaderFilterRegex: "(app_m[47]/(src|inc)|shared)/.*\\.h$"
+
+SystemHeaders: false
+
+FormatStyle: llvm
+
+CheckOptions:
+  # --- Functions: snake_case (e.g. read_sensor_value) ---
+  - key: readability-identifier-naming.FunctionCase
+    value: lower_case
+
+  # --- Types: snake_case (structs, enums, typedefs, unions) ---
+  - key: readability-identifier-naming.TypedefCase
+    value: lower_case
+  - key: readability-identifier-naming.StructCase
+    value: lower_case
+  - key: readability-identifier-naming.EnumCase
+    value: lower_case
+  - key: readability-identifier-naming.UnionCase
+    value: lower_case
+
+  # --- Enum constants & macros: UPPER_CASE ---
+  - key: readability-identifier-naming.EnumConstantCase
+    value: UPPER_CASE
+  - key: readability-identifier-naming.MacroDefinitionCase
+    value: UPPER_CASE
+
+  # --- Local variables & parameters: camelCase ---
+  - key: readability-identifier-naming.VariableCase
+    value: camelBack
+  - key: readability-identifier-naming.LocalVariableCase
+    value: camelBack
+  - key: readability-identifier-naming.ParameterCase
+    value: camelBack
+  - key: readability-identifier-naming.MemberCase
+    value: camelBack
+
+  # --- Global variables: g_camelCase ---
+  - key: readability-identifier-naming.GlobalVariableCase
+    value: camelBack
+  - key: readability-identifier-naming.GlobalVariablePrefix
+    value: g_
+  # prefix so StaticVariable/StaticConstant rules remain authoritative.
+  - key: readability-identifier-naming.GlobalVariableIgnoredRegexp
+    value: "^m_.*$"
+
+  # --- Static file-scope variables (TU-private): m_camelCase ---
+  - key: readability-identifier-naming.StaticVariableCase
+    value: camelBack
+  - key: readability-identifier-naming.StaticVariablePrefix
+    value: m_
+
+  # --- Static file-scope constants (static const): m_camelCase ---
+  - key: readability-identifier-naming.StaticConstantCase
+    value: camelBack
+  - key: readability-identifier-naming.StaticConstantPrefix
+    value: m_
+
+  # --- Ignore Zephyr-internal macro-generated local variable names ---
+  - key: readability-identifier-naming.LocalVariableIgnoredRegexp
+    value: "^(_.*|can_simple)$"
