@@ -35,7 +35,7 @@ menu "Application Configuration"
                 default 100
             config LED_SUBSYSTEM_ADV_FADE_DURATION
                 int "LED fade duration (ms)"
-                range 0 500
+                range 0 5000
                 default 0
             config LED_SUBSYSTEM_EXPERT_SETTINGS
                 bool
