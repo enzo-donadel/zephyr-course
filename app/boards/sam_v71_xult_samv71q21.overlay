@@ -1,0 +1,3 @@
+&yellow_led0 {
+	status = "disabled";
+};
