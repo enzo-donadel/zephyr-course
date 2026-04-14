@@ -1,0 +1,9 @@
+/ {
+	aliases {
+        /*      You can't define an alias for an alias, as the homework asks. 
+                app-led = &led0; is gonna fail to build.
+                my board has led0 defined as this led, so I setted up here, but maybe your board don't have it.
+        */
+		app-led = &yellow_led1;
+	};
+};

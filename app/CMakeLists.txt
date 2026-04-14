@@ -7,6 +7,7 @@ set(SUBSYSTEM_SOURCES "")
 if(CONFIG_LED_SUBSYSTEM)
 list(APPEND SUBSYSTEM_SOURCES
     subsys/LED/led_subsystem.c
+    subsys/Heartbeat/heartbeat.c
 )
 endif()
 

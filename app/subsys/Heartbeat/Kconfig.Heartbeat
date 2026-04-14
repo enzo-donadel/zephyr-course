@@ -1,0 +1,9 @@
+
+menu "Heartbeat Subsystem"
+        config APP_HEARTBEAT_PERIOD_MS
+                int "Heartbeat period (ms)"
+                range 250 2000
+                default 500
+        config APP_HEARTBEAT_DEBUG
+                bool "Enable debug messages for Heartbeat subsystem"
+endmenu
