@@ -1,0 +1,11 @@
+if ETH_SAM_GMAC
+
+# Read MAC address from AT24MAC402 EEPROM
+
+config EEPROM
+	default y if NVMEM
+
+endif # ETH_SAM_GMAC
+
+configdefault NET_L2_ETHERNET
+	default y
