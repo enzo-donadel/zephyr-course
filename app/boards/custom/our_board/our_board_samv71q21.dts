@@ -1,0 +1,21 @@
+/*
+ * Copyright (c) 2017 Piotr Mienkowski
+ * Copyright (c) 2017 Justin Watson
+ * Copyright (c) 2020-2024 Gerson Fernando Budke <nandojve@gmail.com>
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/dts-v1/;
+
+#include <atmel/samv71x21.dtsi>
+#include "our_board-common.dtsi"
+
+/ {
+	model = "Atmel SAM V71 Xplained Ultra custom board";
+	compatible = "our_board", "atmel,sam_v71_xult", "atmel,samv71q21", "atmel,samv71";
+};
+
+&yellow_led0 {
+	status = "disabled";
+};

@@ -1,0 +1,7 @@
+board:
+  name: our_board
+  full_name: SAM V71(B) Xplained Ultra Custom board for zephyr course
+  vendor: custom
+  socs:
+    - name: samv71q21
+    - name: samv71q21b

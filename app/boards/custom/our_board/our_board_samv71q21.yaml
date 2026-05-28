@@ -1,0 +1,34 @@
+identifier: our_board/samv71q21
+name: Custom board SAM V71(B) Xplained Ultra for the zephyr course
+type: mcu
+arch: arm
+toolchain:
+  - zephyr
+  - gnuarmemb
+flash: 2048
+ram: 384
+supported:
+  - adc
+  - arduino_gpio
+  - arduino_i2c
+  - arduino_spi
+  - can
+  - counter
+  - dac
+  - dma
+  - hwinfo
+  - gpio
+  - i2s
+  - pwm
+  - netif:eth
+  - rtc
+  - sdhc
+  - spi
+  - usb_device
+  - usbd
+  - watchdog
+  - xpro_gpio
+  - xpro_i2c
+  - xpro_serial
+  - xpro_spi
+vendor: custom
