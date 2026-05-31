@@ -16,6 +16,7 @@ endif()
 if(CONFIG_LED_SENSOR)
 list(APPEND SUBSYSTEM_SOURCES
     drivers/sensor/led_sensor/led_sensor.c
+    src/shell_commands.c
 )
 endif()
 
