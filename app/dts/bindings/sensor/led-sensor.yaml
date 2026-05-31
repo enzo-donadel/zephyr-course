@@ -1,0 +1,11 @@
+description: Simple on-board LED used as a sensor device
+
+compatible: "led-sensor"
+
+include: base.yaml
+
+properties:
+  gpios:
+    type: phandle-array
+    required: true
+    description: GPIO specifier for the LED pin

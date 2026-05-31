@@ -1,0 +1,8 @@
+config LED_SENSOR
+        bool "LED Sensor Driver"
+        depends on SENSOR
+        depends on DT_HAS_LED_SENSOR_ENABLED
+        help
+          Enable the simple on-board LED sensor driver.
+          sensor_sample_fetch turns the LED ON.
+          sensor_channel_get turns the LED OFF and returns the previous state.

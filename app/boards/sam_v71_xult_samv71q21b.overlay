@@ -1,3 +1,15 @@
+/ {
+	aliases {
+		app-led = &yellow_led1;
+	};
+
+	led_sensor0: led_sensor {
+		compatible = "led-sensor";
+		gpios = <&pioa 23 GPIO_ACTIVE_LOW>;
+		status = "okay";
+	};
+};
+
 &yellow_led0 {
 	status = "disabled";
 };

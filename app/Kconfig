@@ -1,6 +1,7 @@
 menu "Application Configuration"
     rsource "subsys/LED/Kconfig.LED"
     rsource "subsys/Heartbeat/Kconfig.Heartbeat"
+    rsource "drivers/sensor/led_sensor/Kconfig"
 endmenu
 
 menu "Zephyr Configuration"
