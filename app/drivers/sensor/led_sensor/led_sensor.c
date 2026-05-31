@@ -4,6 +4,7 @@
 #include <zephyr/drivers/gpio.h>
 #include <zephyr/drivers/sensor.h>
 #include <zephyr/logging/log.h>
+#include "led_sensor.h"
 
 LOG_MODULE_REGISTER(led_sensor, LOG_LEVEL_INF);
 
@@ -53,9 +54,23 @@ static int led_sensor_channel_get(const struct device *dev, enum sensor_channel 
 	return 0;
 }
 
-static const struct sensor_driver_api led_sensor_api = {
-	.sample_fetch = led_sensor_sample_fetch,
-	.channel_get  = led_sensor_channel_get,
+static int led_sensor_set_state_impl(const struct device *dev, bool on)
+{
+	const struct led_sensor_config *cfg = dev->config;
+	struct led_sensor_data *data = dev->data;
+
+	gpio_pin_set_dt(&cfg->led, on ? 1 : 0);
+	data->state = on ? 1 : 0;
+	LOG_INF("LED state set to %s", on ? "ON" : "OFF");
+	return 0;
+}
+
+static const struct led_sensor_driver_api led_sensor_api = {
+	.sensor = {
+		.sample_fetch = led_sensor_sample_fetch,
+		.channel_get  = led_sensor_channel_get,
+	},
+	.set_state = led_sensor_set_state_impl,
 };
 
 #define LED_SENSOR_INIT(n)                                                \

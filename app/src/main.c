@@ -10,6 +10,7 @@
 
 #if CONFIG_LED_SENSOR
 #include <zephyr/drivers/sensor.h>
+#include "led_sensor.h"
 #endif
 
 LOG_MODULE_REGISTER(main, LOG_LEVEL_INF);
@@ -47,10 +48,14 @@ int main(void) {
         if (!device_is_ready(led_sensor_dev)) {
                 LOG_ERR("LED sensor device not ready");
         } else {
-                LOG_INF("LED sensor device ready, starting sample fetch");
                 sensor_sample_fetch(led_sensor_dev);
                 k_sleep(K_MSEC(2000));
                 sensor_channel_get(led_sensor_dev, SENSOR_CHAN_ALL, &val);
+                k_sleep(K_MSEC(1000));
+
+                led_sensor_set_state(led_sensor_dev, true);
+                k_sleep(K_MSEC(2000));
+                led_sensor_set_state(led_sensor_dev, false);
         }
 #endif
 
